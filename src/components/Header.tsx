@@ -11,7 +11,7 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="font-bold text-2xl text-brand-700">
-            LaunchPad<span className="text-purple-600">Dev</span>
+            Vtellu<span className="text-purple-600">Tech</span>
           </div>
         </div>
 

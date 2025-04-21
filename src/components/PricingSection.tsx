@@ -9,13 +9,13 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-const pricingPlans = [
+const mobileAppPlans = [
   {
     name: "Free",
     price: "₹0",
-    description: "Perfect for testing your startup idea",
+    description: "Perfect for testing your mobile app idea",
     features: [
-      { text: "Choice of app (up to 20 screens) or website (up to 15 pages)", included: true },
+      { text: "Up to 20 mobile app screens", included: true },
       { text: "Supports up to 5,000 users", included: true },
       { text: "Built with React Native and Firebase", included: true },
       { text: "Basic email support", included: true },
@@ -30,9 +30,9 @@ const pricingPlans = [
   {
     name: "Startup Essential",
     price: "₹29,999",
-    description: "Perfect for launching your startup",
+    description: "Perfect for launching your mobile app",
     features: [
-      { text: "App (30 screens) and website (20 pages)", included: true },
+      { text: "Up to 30 mobile app screens", included: true },
       { text: "Supports up to 50,000 users", included: true },
       { text: "Built with React Native and Firebase", included: true },
       { text: "Source code included", included: true },
@@ -47,9 +47,9 @@ const pricingPlans = [
   {
     name: "Growth",
     price: "₹59,999",
-    description: "For startups ready to scale",
+    description: "For mobile apps ready to scale",
     features: [
-      { text: "App (50 screens) and website (40 pages)", included: true },
+      { text: "Up to 50 mobile app screens", included: true },
       { text: "Supports up to 100,000 users", included: true },
       { text: "Custom cloud storage options", included: true },
       { text: "Choice of coding languages", included: true },
@@ -64,9 +64,80 @@ const pricingPlans = [
   {
     name: "Enterprise",
     price: "₹99,999",
-    description: "For large-scale applications",
+    description: "For large-scale mobile applications",
     features: [
-      { text: "Unlimited screens and pages", included: true },
+      { text: "Unlimited app screens", included: true },
+      { text: "Unlimited users", included: true },
+      { text: "Custom architecture & infrastructure", included: true },
+      { text: "Advanced security & compliance", included: true },
+      { text: "24/7 premium support", included: true },
+      { text: "Dedicated development team", included: true },
+      { text: "Custom integrations", included: true },
+      { text: "SLA guarantees", included: true },
+    ],
+    ctaText: "Contact Us",
+    popular: false,
+  },
+];
+
+const webAppPlans = [
+  {
+    name: "Free",
+    price: "₹0",
+    description: "Perfect for testing your website idea",
+    features: [
+      { text: "Up to 15 website pages", included: true },
+      { text: "Supports up to 5,000 users", included: true },
+      { text: "Built with React, Next.js & Node.js", included: true },
+      { text: "Basic email support", included: true },
+      { text: "Firebase integration", included: true },
+      { text: "Source code", included: false, tooltip: "Available in paid plans" },
+      { text: "Priority support", included: false, tooltip: "Available in paid plans" },
+      { text: "Domain & hosting", included: false, tooltip: "Available in paid plans" },
+    ],
+    ctaText: "Get Started Free",
+    popular: false,
+  },
+  {
+    name: "Startup Essential",
+    price: "₹29,999",
+    description: "Perfect for launching your website",
+    features: [
+      { text: "Up to 20 website pages", included: true },
+      { text: "Supports up to 50,000 users", included: true },
+      { text: "Built with React, Next.js & Node.js", included: true },
+      { text: "Source code included", included: true },
+      { text: "Priority email support", included: true },
+      { text: "Free domain & hosting setup", included: true },
+      { text: "Custom cloud options", included: false, tooltip: "Available in Growth plan" },
+      { text: "24/7 support", included: false, tooltip: "Available in Enterprise plan" },
+    ],
+    ctaText: "Get Started",
+    popular: true,
+  },
+  {
+    name: "Growth",
+    price: "₹59,999",
+    description: "For websites ready to scale",
+    features: [
+      { text: "Up to 40 website pages", included: true },
+      { text: "Supports up to 100,000 users", included: true },
+      { text: "Custom cloud storage options", included: true },
+      { text: "Choice of coding languages", included: true },
+      { text: "24/7 priority support", included: true },
+      { text: "Dedicated project manager", included: true },
+      { text: "Advanced security features", included: true },
+      { text: "Performance optimization", included: true },
+    ],
+    ctaText: "Get Started",
+    popular: false,
+  },
+  {
+    name: "Enterprise",
+    price: "₹99,999",
+    description: "For large-scale web applications",
+    features: [
+      { text: "Unlimited pages", included: true },
       { text: "Unlimited users", included: true },
       { text: "Custom architecture & infrastructure", included: true },
       { text: "Advanced security & compliance", included: true },
@@ -81,20 +152,37 @@ const pricingPlans = [
 ];
 
 export default function PricingSection() {
-  const [billingInterval, setBillingInterval] = useState("monthly");
+  const [selectedService, setSelectedService] = useState("mobile");
 
   return (
     <section id="pricing" className="py-16 bg-gray-50">
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Transparent Pricing</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Choose the perfect plan for your startup's development needs, with options for every stage of growth.
+          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
+            Choose the perfect plan for your development needs, with options for every stage of growth.
           </p>
+          
+          <div className="flex justify-center gap-4 mb-8">
+            <Button
+              variant={selectedService === "mobile" ? "default" : "outline"}
+              onClick={() => setSelectedService("mobile")}
+              className={selectedService === "mobile" ? "bg-gradient-to-r from-primary to-accent" : ""}
+            >
+              Mobile Apps
+            </Button>
+            <Button
+              variant={selectedService === "web" ? "default" : "outline"}
+              onClick={() => setSelectedService("web")}
+              className={selectedService === "web" ? "bg-gradient-to-r from-primary to-accent" : ""}
+            >
+              Web Apps
+            </Button>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {pricingPlans.map((plan, index) => (
+          {(selectedService === "mobile" ? mobileAppPlans : webAppPlans).map((plan, index) => (
             <div 
               key={index}
               className={`relative rounded-xl border bg-white shadow-sm transition-all ${
@@ -111,11 +199,7 @@ export default function PricingSection() {
                 <h3 className="text-xl font-semibold">{plan.name}</h3>
                 <div className="mt-4 flex items-baseline text-gray-900">
                   <span className="text-3xl font-bold tracking-tight">{plan.price}</span>
-                  {plan.price !== "Free" && plan.price !== "Custom" && (
-                    <span className="ml-1 text-sm font-medium text-gray-500">
-                      {billingInterval === "monthly" ? "/project" : "/year"}
-                    </span>
-                  )}
+                  <span className="ml-1 text-sm font-medium text-gray-500">/project</span>
                 </div>
                 <p className="mt-2 text-sm text-gray-500">{plan.description}</p>
 

@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Facebook, Twitter, Instagram, Linkedin, Github, Mail } from "lucide-react";
@@ -10,7 +9,7 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="font-bold text-xl text-white mb-4">
-              LaunchPad<span className="text-purple-400">Dev</span>
+              Vtellu<span className="text-purple-400">Tech</span>
             </div>
             <p className="text-sm mb-6">
               Turning startup ideas into reality with professional development services tailored to your needs.
@@ -81,7 +80,7 @@ export default function Footer() {
         
         <div className="border-t border-gray-800 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} LaunchPadDev. All rights reserved.
+            © {new Date().getFullYear()} Vtellu. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">Privacy Policy</a>
